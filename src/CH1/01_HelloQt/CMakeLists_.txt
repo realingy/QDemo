@@ -1,0 +1,28 @@
+cmake_minimum_required(VERSION 3.5)
+
+set( CMAKE_CXX_FLAGS "-std=c++11" )
+
+set(CMAKE_CONFIGRATION_TYPES "Release" CACHE STRING "" FORCE)
+
+# Qt库查询
+set(Qt5_DIR $ENV{QT590}/lib/cmake/Qt5)
+message(${Qt5_DIR})
+set(ACTIVE_QT_DIR $ENV{QTDIRMSVC})
+
+# Qt查询路径
+set(CMAKE_PREFIX_PATH "${CMAKE_PREFIX_PATH};${ACTIVE_QT_DIR}")
+set(INSTALL_PREFIX_INITIALIZED ${CMAKE_CURRENT_SOURCE_DIR}/build/install CACHE STRINGS "change prefix")
+
+find_package(Qt5 COMPONENTS Core Widgets REQUIRED)
+
+# 包含目录
+# include_directories(${OpenCV_DIR}/install/include/opencv)
+# include_directories(${OpenCV_DIR}/install/include/opencv2)
+
+# 查找源文件
+aux_source_directory(. DIR_SRCS)
+
+# 生成目标信息
+set(EXENAME 01_HelloQt)
+add_executable(${EXENAME} ${DIR_SRCS})
+# target_link_libraries (${EXENAME} ${Qt5_LIBS})
