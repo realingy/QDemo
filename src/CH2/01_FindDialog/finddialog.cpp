@@ -3,6 +3,7 @@
 #include <QCheckBox>
 #include <QPushButton>
 #include <QBoxLayout>
+#include <QWidget>
 #include "finddialog.h"
 
 FindDialog::FindDialog(QWidget *parent)
@@ -70,3 +71,4 @@ FindDialog::~FindDialog()
 {
 }
 */
+
